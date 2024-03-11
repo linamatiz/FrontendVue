@@ -1,0 +1,30 @@
+[33mcommit 2f22473db7a8061624e2d6712d7b256fe2608519[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 349ec1a 12703f1
+Author: linamatiz <https://github.com/linamatiz/>
+Date:   Mon Jan 15 17:47:08 2024 -0500
+
+    Merge branch 'main' of https://github.com/linamatiz/ProyectoVue
+
+[33mcommit 349ec1a83747ea976833e8feb9894e77e47653b2[m
+Author: linamatiz <https://github.com/linamatiz/>
+Date:   Mon Jan 15 17:31:16 2024 -0500
+
+    button correction
+
+[33mcommit 92dcdb2e7cfb202b269a1c44dcf67ee628c85a0b[m
+Author: linamatiz <https://github.com/linamatiz/>
+Date:   Mon Jan 15 17:09:24 2024 -0500
+
+    buttons correction
+
+[33mcommit 12703f10ab47a1c54e69762738a0ef9df51618fc[m
+Author: lina <linamatiz2022@outlook.com>
+Date:   Sun Nov 19 20:31:46 2023 -0500
+
+    imagenesSeccionProductos
+
+[33mcommit 0141fbcfc1dd75190a239496ec202298457e1b72[m
+Author: lina <linamatiz2022@outlook.com>
+Date:   Wed Nov 15 18:20:42 2023 -0500
+
+    add test
