@@ -7,7 +7,7 @@
         <div class="pagos">
           <div>
             <label>Número de Tarjeta:</label>
-            <input type="text" v-model="cardNumber" placeholder="Número de Tarjeta">
+            <input type="text" v-model="cardNumber" @input="encryptCardNumber" placeholder="Número de Tarjeta">
           </div>
           <br>
           <div>
@@ -19,7 +19,7 @@
             <label>CVV:</label>
             <input type="text" v-model="cvv" placeholder="CVV">
           </div>
-          <button class="botonpagar  " type="submit">Pagar</button>
+          <button class="botonpagar" type="submit">Pagar</button>
         </div>
       </form>
 
@@ -27,7 +27,7 @@
       <div class="datos">
         <h2>Datos pago</h2>
         <br>
-        <p>Número de Tarjeta: {{ cardNumber }}</p>
+        <p>Número de Tarjeta: {{ maskedCardNumber }}</p>
         <br>
         <p>Fecha de Expiración: {{ expDate }}</p>
         <br>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div v-else>
-      <strong>listo tu pago, revisa tu correo.</strong>
+      <strong>¡Listo! Tu pago ha sido procesado. Revisa tu correo.</strong>
     </div>
   </div>
 </template>
@@ -49,7 +49,8 @@ export default {
       cardNumber: '',
       expDate: '',
       cvv: '',
-      paymentComplete: false
+      paymentComplete: false,
+      maskedCardNumber: '' // Nuevo dato para almacenar el número de tarjeta enmascarado
     };
   },
   methods: {
@@ -58,13 +59,18 @@ export default {
       setTimeout(() => {
         this.paymentComplete = true;
         Swal.fire({
-          title: '¡pago exitoso!',
-          text: 'tu pago fue completado',
+          title: '¡Pago exitoso!',
+          text: 'Tu pago ha sido completado.',
           icon: 'success',
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#43d5e8',
         });
       }, 300);
+    },
+    encryptCardNumber() {
+      // Enmascarar el número de tarjeta (usando solo los últimos 4 dígitos)
+      const lastFourDigits = this.cardNumber.slice(-4);
+      this.maskedCardNumber = '**** **** **** ' + lastFourDigits;
     }
   }
 };
@@ -72,8 +78,8 @@ export default {
 
 <style scoped>
 /* Estilos CSS para la vista */
-.cvv{
- margin-left: 70px;
+.cvv {
+  margin-left: 70px;
 }
 .pagos {
   display: flex;
@@ -83,17 +89,15 @@ export default {
   padding: 20px;
   background-color: #a0dfdf;
 }
-
 .botonpagar {
   margin-top: 35px;
   border-radius: 13px;
   background-color: #43d5e8;
   cursor: pointer;
 }
-
 .datos {
   margin-top: 20px;
-  background-color: #e4e3e358;
+  background-color: #b4b7b958;
   padding: 10px;
   border-radius: 10px;
 }
