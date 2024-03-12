@@ -68,7 +68,7 @@ export default {
       }, 300);
     },
     encryptCardNumber() {
-      // Enmascarar el número de tarjeta (usando solo los últimos 4 dígitos)
+      // Enmascarar el número de tarjeta (últimos 4 dígitos)
       const lastFourDigits = this.cardNumber.slice(-4);
       this.maskedCardNumber = '**** **** **** ' + lastFourDigits;
     }

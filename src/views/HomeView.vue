@@ -98,9 +98,9 @@ export default {
      totales: [],
      productos: [
        { id: 1, titulo: 'motorola one fusion', precio: 45000000, descrip: 'gb 128 , ram 8, caja cargador ,caset de proteccion', imagen: require('@/assets/ImagenesProyecto/motorola-one-fusion-upscaled.png')},
-       { id: 2, titulo: 'samsung galaxy s4 ', precio: 15000000, descrip: 'gb 68 , ram 4, caja cargador ,caset de proteccion', imagen: require('@/assets/ImagenesProyecto/iphone-x-upscaled.png')},
-       { id: 3, titulo: 'iphone 8 plus', precio: 20000000, descrip: 'gb 42 , ram 3, caja cargador ,caset de proteccion',imagen: require('@/assets/ImagenesProyecto/samsung_galaxy_s4.png')},
-       { id: 4, titulo: 'iphone x ', precio: 25000000, descrip: 'gb 16 , ram 2, caja cargador ,caset de proteccion',imagen: require('@/assets/ImagenesProyecto/samsung_galaxy_s4.png')},
+       { id: 2, titulo: 'samsung galaxy s4 ', precio: 15000000, descrip: 'gb 68 , ram 4, caja cargador ,caset de proteccion', imagen: require("@/assets/ImagenesProyecto/samsung_galaxy_s4.png")},
+       { id: 3, titulo: 'iphone 8 plus', precio: 20000000, descrip: 'gb 42 , ram 3, caja cargador ,caset de proteccion',imagen: require('@/assets/ImagenesProyecto/iphone-x-upscaled.png')},
+       { id: 4, titulo: 'iphone x ', precio: 25000000, descrip: 'gb 16 , ram 2, caja cargador ,caset de proteccion',imagen: require('@/assets/ImagenesProyecto/iphone-x-upscaled.png')},
        { id: 5, titulo: 'Samsung m12', precio: 25000000, descrip: 'gb 32 , ram 4, caja cargador ,caset de proteccion', imagen: require('@/assets/ImagenesProyecto/samsung-m12-upscaled.png')},
        { id: 6, titulo: 'motorola e 32 ', precio: 25000000, descrip: 'gb 68 , ram 4, caja cargador ,caset de proteccion', imagen: require('@/assets/ImagenesProyecto/motorola-e32-upscaled.png')},
        { id: 7, titulo: 'Samsung galaxy s3 ultra +', precio: 25000000, descrip: 'gb 68 , ram 4, caja cargador ,caset de proteccion', imagen: require('@/assets/ImagenesProyecto/samsung-galaxy-s3-upscaled.png')},
