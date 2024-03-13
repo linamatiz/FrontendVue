@@ -51,13 +51,6 @@
                     <button class="btn btn-primary mb-2" type="submit">Iniciar Sesión</button>
                   </div>
                 </form>
-                <!-- <div class="row">
-                  <button class="btn btn-secondary justify-content-end" style="border-color: transparent; background-color: darkslategray;">
-                    <router-link to="/registro" style="text-decoration: none">
-                    <a style="text-decoration: none !important; color:white;">Registrate</a>
-                    </router-link>
-                  </button>
-                </div> -->
               </div>
             </div>
           </div>

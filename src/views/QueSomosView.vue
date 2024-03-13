@@ -130,7 +130,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* background: url('https://img.freepik.com/vector-gratis/fondo-tecnologia-digital-alambre-malla-red_1017-27428.jpg?size=626&ext=jpg&ga=GA1.2.1691864751.1692220645&semt=ais') no-repeat center center fixed; */
     background-size: cover;
 }
 

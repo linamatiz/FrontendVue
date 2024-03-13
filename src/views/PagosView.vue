@@ -3,7 +3,7 @@
     <h1>Pasarela de Pago</h1>
     <div v-if="!paymentComplete">
       <form @submit.prevent="processPayment">
-        <!-- Campos de entrada de la información del usuario -->
+        <!-- campos de entrada usuario-->
         <div class="pagos">
           <div>
             <label>Número de Tarjeta:</label>
@@ -42,6 +42,7 @@
 
 <script>
 import Swal from 'sweetalert2';
+import router from '@/router'; // Asegúrate de importar el enrutador adecuadamente
 
 export default {
   data() {
@@ -64,17 +65,21 @@ export default {
           icon: 'success',
           confirmButtonText: 'Entendido',
           confirmButtonColor: '#43d5e8',
+        }).then(() => {
+          // se cierra la alerta y se redirecciona a la otra vista
+          router.push('/home'); // redireccion pagina home
         });
       }, 300);
     },
     encryptCardNumber() {
-      // Enmascarar el número de tarjeta (últimos 4 dígitos)
+      // Enmascarar y quedan libres 4 numeros
       const lastFourDigits = this.cardNumber.slice(-4);
       this.maskedCardNumber = '**** **** **** ' + lastFourDigits;
     }
   }
 };
 </script>
+
 
 <style scoped>
 /* Estilos CSS para la vista */
