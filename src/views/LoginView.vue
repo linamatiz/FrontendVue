@@ -100,13 +100,12 @@ export default {
         if(response.data.estatus == '401' || response.data.estatus == 401) {
           this.mostrarAlert();
         }else {
-          this.$router.push('/home')
+          this.$router.push('/home');
         }
       }).catch(error => console.log(error));
     },
 
     mostrarAlert() {
-
       return Swal.fire({
         title: '¡Error!',
         text: 'Usuario y/o contraseña incorrecta',

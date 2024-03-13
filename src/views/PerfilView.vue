@@ -62,11 +62,40 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-name: 'PerfilView'
-//   props: {
-//     msg: String
-//   }
+    name: 'PerfilView',
+    data() {
+        return {
+            numero_documento: '1000791793',
+            nombre: '',
+            apellido: '',
+            correo: ''
+        }
+    },
+    methods: {
+        perfil() {
+            axios.get(`http://127.0.0.1:8000/api/perfil?numero_documento=${this.numero_documento}`)
+            .then(response => {
+                console.log('response', response)
+            }).catch(error => {
+                console.log('error al consultar el perfil', error);
+            })
+        },
+
+        actualizarPerfil() {
+            const query = {
+
+            }
+            axios.post('http://127.0.0.1:8000/api/perfil', query)
+            .then(response => {
+                console.log('response', response)
+            }).catch(error => {
+                console.log('error al actualizar el perfil', error);
+            })
+        },
+    }
 }
 </script>
 

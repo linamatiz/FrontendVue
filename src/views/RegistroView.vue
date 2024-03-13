@@ -32,26 +32,26 @@
         <div class="col-md-6">
           <div class="card">
             <div class="card-body">
-              <form method="POST">
+              <form @submit.prevent="crearUsuario">
                 <div class="mb-3">
                   <label for="numerodoc" class="form-label">Numero De documento</label>
-                  <input type="text" class="form-control" id="numerodoc" name="numerodoc" required>
+                  <input type="text" class="form-control" id="numerodoc" name="numerodoc" v-model="numero_documento" required>
                 </div>
                 <div class="mb-3">
                   <label for="contrasena" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                  <input type="password" class="form-control" id="contrasena" name="contrasena" v-model="password" required>
                 </div>
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" required>
+                  <input type="text" class="form-control" id="nombre" name="nombre" v-model="nombre" required>
                 </div>
                 <div class="mb-3">
                   <label for="apellido" class="form-label">Apellido</label>
-                  <input type="text" class="form-control" id="apellido" name="apellido" required>
+                  <input type="text" class="form-control" id="apellido" name="apellido" v-model="apellido" required>
                 </div>
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo</label>
-                  <input type="email" class="form-control" id="correo" name="correo" required>
+                  <input type="email" class="form-control" id="correo" name="correo" v-model="correo" required>
                 </div>
                 <div class="row justify-content-center">
                   <button type="submit" class="btn btn-secondary justify-content-end" style="border-color: transparent; color: primary;">
@@ -77,8 +77,55 @@
 </template>
 
 <script>
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 export default {
-  name: 'RegistroView'
+  name: 'RegistroView',
+  data() {
+    return {
+      numero_documento: '',
+      password: '',
+      nombre: '',
+      apellido: '',
+      correo: ''
+    }
+  },
+  methods: {
+    crearUsuario() {
+      const query = {
+        numero_documento: this.numero_documento,
+        nombre: this.nombre,
+        apellido: this.apellido,
+        correo: this.correo,
+        password: this.password
+      }
+
+      axios.post('http://127.0.0.1:8000/api/create', query)
+      .then(response => {
+        console.log('respuesta registro: ', response);
+        this.mostrarAlerta(false);
+      }).catch(error => {
+        this.mostrarAlerta(true);
+        console.log('error al realizar el registro', error)
+      });
+    },
+
+    mostrarAlerta(esError) {
+      return Swal.fire({
+        title: esError ? '¡Error!' : 'Bien',
+        text: esError ? 'Usuario y/o contraseña incorrecta' : 'registrado',
+        icon: esError ? 'error' : 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: esError ? 'red' : 'blue',
+      }).then(() => {
+        if(esError) {
+          return
+        }
+        this.$router.push('/home');
+      });
+    }
+  }
 }
 </script>
 
