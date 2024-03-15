@@ -7,6 +7,7 @@ import QueSomosView from '../views/QueSomosView.vue'
 import PerfilView from '../views/PerfilView.vue'
 import HomeView from '../views/HomeView.vue'
 import pagosView from '../views/PagosView.vue'
+import ChatView from '../views/ChatView.vue'
 
 const routes = [
   {
@@ -46,6 +47,11 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     component: WelcomeView,
+  },
+  {
+    path: '/Chat',
+    name: 'Chat',
+    component: ChatView,
   },
 ]
 

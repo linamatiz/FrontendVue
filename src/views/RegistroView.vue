@@ -114,7 +114,7 @@ export default {
     mostrarAlerta(esError) {
       return Swal.fire({
         title: esError ? '¡Error!' : 'Bien',
-        text: esError ? 'Usuario y/o contraseña incorrecta' : 'registrado',
+        text: esError ? 'corrige tus datos' : 'registrado',
         icon: esError ? 'error' : 'success',
         confirmButtonText: 'Aceptar',
         confirmButtonColor: esError ? 'red' : 'blue',
