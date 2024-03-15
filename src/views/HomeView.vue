@@ -11,6 +11,10 @@
                    <li><a class="nav-link px-2 text-secondary" style="color: white !important;">¿Quienes somos?</a></li>
                 </router-link>
                </ul>
+               <br>
+               <router-link to="/Chat" style="text-decoration: none">
+                   <li><a class="chat " style="color: white !important;">atencion usuario</a></li>
+                </router-link>
 
                <div class="text-end mr-5">
                
@@ -184,4 +188,10 @@ header {
   text-decoration: none !important;
   color: white;
 }
+.chat{
+ margin-right: 70px;
+ 
+
+}
+
 </style>
