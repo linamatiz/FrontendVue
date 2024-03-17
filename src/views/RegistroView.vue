@@ -53,6 +53,13 @@
                   <label for="correo" class="form-label">Correo</label>
                   <input type="email" class="form-control" id="correo" name="correo" v-model="correo" required>
                 </div>
+                <div>
+                    <label for="checkbox1">eres mayor de edad</label>
+                      <input type="checkbox" id="checkbox1" v-model="checkbox1Value">
+                      <br>
+                      <label for="checkbox2">aceptas las politicas</label>
+                      <input type="checkbox" id="checkbox2" v-model="checkbox1Value">
+                  </div>
                 <div class="row justify-content-center">
                   <button type="submit" class="btn btn-secondary justify-content-end" style="border-color: transparent; color: primary;">
                     Registrate

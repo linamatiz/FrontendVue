@@ -9,6 +9,7 @@ import HomeView from '../views/HomeView.vue'
 import pagosView from '../views/PagosView.vue'
 import ChatView from '../views/ChatView.vue'
 
+
 const routes = [
   {
     path: '/welcome',

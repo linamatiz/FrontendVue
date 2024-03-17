@@ -40,13 +40,6 @@
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" v-model="contra" name="password" required>
                   </div>
-                  <div>
-                    <label for="checkbox1">eres mayor de edad</label>
-                      <input type="checkbox" id="checkbox1" v-model="checkbox1Value">
-                      <br>
-                      <label for="checkbox2">aceptas las politicas</label>
-                      <input type="checkbox" id="checkbox2" v-model="checkbox1Value">
-                  </div>
                   <div class="row">
                     <button class="btn btn-primary mb-2" type="submit">Iniciar Sesión</button>
                   </div>
