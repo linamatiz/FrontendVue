@@ -1,4 +1,5 @@
 <template>
+  <HeaderComponent></HeaderComponent>
   <div>
     <h1>Pasarela de Pago</h1>
     <div v-if="!paymentComplete">
@@ -42,9 +43,14 @@
 
 <script>
 import Swal from 'sweetalert2';
-import router from '@/router'; // Asegúrate de importar el enrutador adecuadamente
+import router from '@/router';
+import HeaderComponent from './../components/HeaderComponent.vue';
 
 export default {
+  name: 'PagosView',
+  components: {
+    HeaderComponent
+  },
   data() {
     return {
       cardNumber: '',

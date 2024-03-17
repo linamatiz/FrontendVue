@@ -6,9 +6,8 @@ import RegistroView from '../views/RegistroView.vue'
 import QueSomosView from '../views/QueSomosView.vue'
 import PerfilView from '../views/PerfilView.vue'
 import HomeView from '../views/HomeView.vue'
-import pagosView from '../views/PagosView.vue'
+import PagosView from '../views/PagosView.vue'
 import ChatView from '../views/ChatView.vue'
-
 
 const routes = [
   {
@@ -43,17 +42,17 @@ const routes = [
   {
     path: '/pagos',
     name: 'pagos',
-    component: pagosView
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    component: WelcomeView,
+    component: PagosView
   },
   {
     path: '/Chat',
     name: 'Chat',
     component: ChatView,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    component: WelcomeView,
+  }
 ]
 
 const router = createRouter({

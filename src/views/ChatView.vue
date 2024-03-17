@@ -1,5 +1,5 @@
 <template>
-  <div id="app"></div>
+  <HeaderComponent></HeaderComponent>
   <div id="chatbot-container" class="smoky-bg">
     <div v-for="(message, index) in messages" :key="index" class="message-container">
       <p :class="{ 'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot' }">
@@ -8,10 +8,17 @@
     </div>
     <input class="input" type="text" v-model="inputText" @keyup.enter="sendMessage" placeholder="Escribe un mensaje..." />
   </div>
+  
 </template>
 
 <script>
+import HeaderComponent from './../components/HeaderComponent.vue';
+
 export default {
+  name: 'ChatView',
+  components: {
+    HeaderComponent
+  },
   data() {
     return {
       inputText: '',
@@ -66,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #chatbot-container {
   background-color: #747576;
   margin:  auto;

@@ -1,0 +1,104 @@
+<template>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <span class="fs-4" style="color: white">Compra & Venta</span>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <router-link to="/quesomos" style="text-decoration: none">
+                    <li><a class="nav-link px-2 text-secondary" style="color: white !important;">¿Quienes somos?</a></li>
+                    </router-link>
+                </ul>
+                <br>
+                <router-link to="/Chat" style="text-decoration: none">
+                    <li><a class="chat " style="color: white !important;">atencion usuario</a></li>
+                </router-link>
+
+                <div class="text-end mr-5" v-if="mostrarBoton">  
+                    <button type="button" class="btn btn-danger me-2" @click="cerrarSession()">
+                        Cierra sesion
+                    </button>                    
+                    <button type="button" class="btn btn-danger me-3" style="background-color: darkslategray; border-color:black">
+                        <router-link to="/perfil" style="text-decoration: none">
+                            <a class="button-profile">Perfil</a>
+                        </router-link>
+                    </button>
+                </div>
+
+                <div class="text-end mr-5" v-if="!mostrarBoton">  
+                    <button type="button" class="btn btn-danger me-2"
+                        @click="cerrarSession()"
+                        v-if="mostrarBotonLogin">
+                        <router-link to="/login" style="text-decoration: none">
+                            <a class="button-profile">Iniciar sesion</a>
+                        </router-link>
+                    </button>                    
+                    <button type="button" class="btn btn-danger me-3" 
+                        style="background-color: darkslategray; border-color:black"
+                        v-if="mostrarBotonRegistro">
+                        <router-link to="/registro" style="text-decoration: none">
+                            <a class="button-profile">Registrate</a>
+                        </router-link>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</template>
+<script>
+import axios from 'axios';
+
+export default {
+    name: 'HeaderComponent',
+    data() {
+        return {
+            mostrarBoton: false,
+            mostrarBotonLogin: true,
+            mostrarBotonRegistro: true
+        }
+    },
+    created() {
+        this.mostrarBotones()
+    },
+    methods: {
+        cerrarSession() {
+            axios.get('http://127.0.0.1:8000/api/cerrarSesion')
+            .then(() => {
+                localStorage.setItem('logeado', JSON.stringify(false));
+                localStorage.removeItem('documento');
+                this.$router.push('/login');
+            }).catch(() => {
+                //alerta que muestre que no se pudo cerrar la sesion
+            })
+        },
+
+        //mostrar botones de inicio si esta logeado
+        mostrarBotones() {
+            const logeado = JSON.parse(localStorage.getItem('logeado'));
+
+            this.mostrarBoton = logeado;
+
+            console.log("poath", this.$route.path)
+            if(this.$route.path === '/login') {
+                this.mostrarBotonLogin = false;
+            }
+
+            if(this.$route.path === '/registro') {
+                this.mostrarBotonRegistro = false;
+            }
+        }
+    }
+}
+</script>
+<style scoped>
+    header {
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        background: linear-gradient(70deg, #08fcfc, #212223);
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+        color: white !important;
+    }
+</style>    

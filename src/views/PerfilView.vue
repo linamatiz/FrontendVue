@@ -1,15 +1,5 @@
 <template>
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-1 mb-md-3 me-md-auto link-body-emphasis  text-decoration-none">
-                    <span class="fs-4">Compra & Venta</span>
-                        </a>
-            </div>
-        </div>
-            
-    </header>
-
+    <HeaderComponent></HeaderComponent>
     <div class="container ml-auto">
  
         <!-- actualizar datos pefil"
@@ -19,26 +9,22 @@
             <div class="card">
                 <div class="card-header">Actualizar Perfil</div>
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" @submit.prevent="actualizarPerfil">
                             <div class="form-group ">
                                 <label for="numero_documento">Número de Documento</label>
-                                <input type="text" class="form-control" id="numero_documento" name="numero_documento"  disabled>
+                                <input type="text" class="form-control" id="numero_documento" v-model="numero_documento" name="numero_documento"  disabled>
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" >
+                                <input type="text" class="form-control" id="nombre" v-model="nombre" name="nombre" >
                             </div>
                             <div class="form-group">
                                 <label for="apellido">Apellido</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido">
+                                <input type="text" class="form-control" id="apellido" v-model="apellido" name="apellido">
                             </div>
                             <div class="form-group">
                                 <label for="correo">Correo</label>
-                                <input type="text" class="form-control" id="correo" name="correo" >
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="password" >
+                                <input type="text" class="form-control" id="correo" v-model="correo" name="correo" >
                             </div>
                             
 
@@ -53,32 +39,43 @@
         </div>
     </div>
     <div class="container mt-5">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
-                <ul class="nav col-md-4 justify-content-end">
-            </ul>
-        </footer>
+        <!-- footer-->
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import HeaderComponent from './../components/HeaderComponent.vue';
 
 export default {
     name: 'PerfilView',
+    components: {
+        HeaderComponent
+    },
     data() {
         return {
-            numero_documento: '1000791793',
+            numero_documento: '',
             nombre: '',
             apellido: '',
             correo: ''
         }
     },
+    created() {
+        this.perfil();
+    },
     methods: {
         perfil() {
-            axios.get(`http://127.0.0.1:8000/api/perfil?numero_documento=${this.numero_documento}`)
+            const documento = JSON.parse(localStorage.getItem('documento'));
+
+            axios.get(`http://127.0.0.1:8000/api/perfil?numero_documento=${documento}`)
             .then(response => {
-                console.log('response', response)
+                console.log('response', response.data.usuario.nombre)
+                this.numero_documento = response.data.usuario.numero_documento;
+                this.nombre = response.data.usuario.nombre;
+                this.apellido = response.data.usuario.apellido;
+                this.correo = response.data.usuario.correo;
+
             }).catch(error => {
                 console.log('error al consultar el perfil', error);
             })
@@ -86,15 +83,34 @@ export default {
 
         actualizarPerfil() {
             const query = {
+                numero_documento: this.numero_documento,
+                usuario: {
+                    numero_documento: this.numero_documento,
+                    nombre: this.nombre,
+                    apellido: this.apellido,
+                    correo: this.correo
+                }
+            };
 
-            }
-            axios.post('http://127.0.0.1:8000/api/perfil', query)
+            axios.post('http://127.0.0.1:8000/api/actualizarUsuario', query)
             .then(response => {
                 console.log('response', response)
+                this.mostrarAlert(response.data.message, false);
             }).catch(error => {
                 console.log('error al actualizar el perfil', error);
+                this.mostrarAlert('error al actualizar el perfil', true);
             })
         },
+
+        mostrarAlert(mensaje, esError) {
+            return Swal.fire({
+                title: esError ? '¡Error!' : 'Bien',
+                text: mensaje,
+                icon: esError ? 'error' : 'success',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: esError ? 'red' : 'blue',
+            });
+        }
     }
 }
 </script>

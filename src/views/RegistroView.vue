@@ -1,31 +1,5 @@
 <template>
-  <header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <router-link to="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <span class="fs-4" style="color: white">Compra & Venta</span>
-        </router-link>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <router-link to="/welcome" style="text-decoration: none">
-              <a class="nav-link px-2 text-secondary rounded btn btn-warning" style="color: white !important; border: 1px solid; width: 150px; height: 50px ;">
-                Inicio
-              </a>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-
-      <div class="text-end end-0 position-absolute">
-        <router-link to="/login" style="text-decoration: none; color: white;">
-          <button type="button" class="btn btn-warning text-dark" style="background-color: white; border-color: transparent; margin-top: -75px; border: 2px solid; width: 150px; height: 50px;">
-            Inicia Sesión
-          </button>
-        </router-link>
-      </div>
-    </div>
-  </header>
-
+  <HeaderComponent></HeaderComponent>
   <div class="containerPrincipal">
     <div class="container mt-3">
       <div class="row justify-content-center">
@@ -73,9 +47,7 @@
     </div>
 
     <div class="container mt-5">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
-      </footer>
+      <!-- footer-->
     </div>
   </div>
 </template>
@@ -83,9 +55,13 @@
 <script>
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import HeaderComponent from './../components/HeaderComponent.vue';
 
 export default {
   name: 'RegistroView',
+  components: {
+    HeaderComponent
+  },
   data() {
     return {
       numero_documento: '',
@@ -109,6 +85,8 @@ export default {
       .then(response => {
         console.log('respuesta registro: ', response);
         this.mostrarAlerta(false);
+        localStorage.setItem('logeado', JSON.stringify(true));
+        localStorage.setItem('documento', JSON.stringify(this.numero_documento));
       }).catch(error => {
         this.mostrarAlerta(true);
         console.log('error al realizar el registro', error)
@@ -135,13 +113,6 @@ export default {
 
 <!-- css -->
 <style scoped>
-header {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  background: linear-gradient(-60deg, #08fcfc, #212223);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
-  color: white !important;
-}
 
 .containerPrincipal {
   background: linear-gradient(500deg, #c4c4c4, #828788);
@@ -157,7 +128,5 @@ header {
 .nav-link {
   background: linear-gradient(500deg, #c4c4c4, #828788);
 }
-.btnbtn-warningtext-dark{
-margin-right: 40px;
-}
+
 </style>
