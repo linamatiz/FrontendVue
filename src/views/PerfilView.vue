@@ -2,7 +2,7 @@
     <header class="p-3 text-bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-1 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <a href="/" class="d-flex align-items-center mb-1 mb-md-3 me-md-auto link-body-emphasis  text-decoration-none">
                     <span class="fs-4">Compra & Venta</span>
                         </a>
             </div>
@@ -13,9 +13,9 @@
     <div class="container ml-auto">
  
         <!-- actualizar datos pefil"
-        
+
         </div> -->
-        <div class="col-md-19">
+        <div class="col-md-19 mt-5">
             <div class="card">
                 <div class="card-header">Actualizar Perfil</div>
                     <div class="card-body">
@@ -42,11 +42,11 @@
                             </div>
                             
 
-                            <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
+                            <button type="submit" class="btn btn-primary mt-2">Actualizar Perfil</button>
                         </form>
                         
                         <router-link to="/home" style="text-decoration: none">
-                            <button class="btn btn-danger mt-2">Atras</button>
+                            <button class="btn btn-danger mt-3">Atras</button>
                         </router-link>
                     </div>
                 </div>
@@ -102,9 +102,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .fs-4{
-    color: rgb(132, 209, 205); /* Establecer el color del texto */
+    color: rgb(20, 230, 233); /* Establecer el color del texto */
     text-align: center; /* Centrar el texto horizontalmente */
-    font-size: 29px; /* Establecer el tamaño del texto en 29px */
+    font-size: 49px; /* Establecer el tamaño del texto en 29px */
 
 }
 
