@@ -5,7 +5,9 @@
       <div class="row w-100 justify-content-center align-items-center">
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header text-center " style="background-color: darkslategray !important; color: white">Iniciar Sesión</div>
+            <div class="card-header text-center" style="background-color: darkslategray !important; color: white">
+              <h3>Iniciar Sesión</h3>
+            </div>
               <div class="card-body">
                 <form @submit.prevent="login">
                   <div class="mb-3">
@@ -16,7 +18,7 @@
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" v-model="contra" name="password" required>
                   </div>
-                  <div class="row">
+                  <div class="row px-5 mb-3 mt-2">
                     <button class="btn btn-primary mb-2" type="submit">Iniciar Sesión</button>
                   </div>
                 </form>
