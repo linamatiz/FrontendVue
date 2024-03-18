@@ -24,30 +24,31 @@
                     </li>
                     <li>
                         <div class="text-end mr-5" v-if="mostrarBoton">  
-                            <button type="button" class="btn btn-danger me-2" @click="cerrarSession()">
+                            <button type="button" class="btn btn-danger registr-voton me-2" @click="cerrarSession()">
                                 Cierra sesion
                             </button>                    
-                            <button type="button" class="btn btn-danger me-3" style="background-color: darkslategray; border-color:black">
+                            <button type="button" class="btn btn-danger registr-voton me-3">
                                 <router-link to="/perfil" style="text-decoration: none">
-                                    <a class="button-profile">Perfil</a>
+                                    Perfil
                                 </router-link>
                             </button>
                         </div>
                     </li>
                     <li>
                         <div class="text-end mr-5" v-if="!mostrarBoton">  
-                            <button type="button" class="btn btn-success me-2"
+                            <button type="button" class="btn btn-success registr-voton me-2"
                                 @click="cerrarSession()"
                                 v-if="mostrarBotonLogin">
                                 <router-link to="/login" style="text-decoration: none">
-                                    <a class="button-profile">Iniciar sesion</a>
+                                    Iniciar sesion
                                 </router-link>
                             </button>                    
-                            <button type="button" class="btn btn-danger me-3" 
-                                style="background-color: darkslategray; border-color:black"
+                            <button 
+                                type="button" 
+                                class="btn btn-danger registr-voton registro me-3" 
                                 v-if="mostrarBotonRegistro">
                                 <router-link to="/registro" style="text-decoration: none">
-                                    <a class="button-profile">Registrate</a>
+                                    Registrate
                                 </router-link>
                             </button>
                         </div>
@@ -65,7 +66,7 @@ export default {
     name: 'HeaderComponent',
     data() {
         return {
-            mostrarBoton: false,
+            mostrarBoton: true,
             mostrarBotonLogin: true,
             mostrarBotonRegistro: true,
             mostrarBotonHome: true
@@ -95,12 +96,18 @@ export default {
             if(this.$route.path === '/login') {
                 this.mostrarBotonHome = false;
                 this.mostrarBotonLogin = false;
+                
             }
 
             if(this.$route.path === '/registro') {
                 this.mostrarBotonHome = false;
                 this.mostrarBotonRegistro = false;
             }
+            if(this.$route.path === '/home') {
+                this.mostrarBoton = true;
+                this.mostrarBotonRegistro = false;
+            }
+            
         }
     }
 }
@@ -121,4 +128,20 @@ export default {
     li:hover {
         text-decoration: underline;
     }
+
+    .registr-voton {
+        background-color: darkslategray;
+        border-color: transparent;
+        box-shadow: 1px 1px 1px 1px #3bdbc3;
+        color: white !important;
+    }
+
+    .registr-voton:active {
+        background-color: #3bdbc3 !important;
+    }
+
+    a {
+        color: white !important;
+    }
+
 </style>    
