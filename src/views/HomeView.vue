@@ -12,7 +12,7 @@
                               <h5 class="card-title">{{ producto.titulo }}</h5>
                               <p class="card-text">{{ producto.descrip }}</p>
                               <p class="card-text">{{ formatoPesos(producto.precio) }}</p>
-                              <button type="button"  @click="showData(producto)" class="btn btn-primary">Añadir al Carrito</button>
+                              <button type="button"  @click="showData(producto)" class="boton-añadir">Añadir al Carrito</button>
                           </div>
                       </div>
                   </div>
@@ -33,12 +33,11 @@
                       </ul>
                       </div>
                     </div>  
-
                     <p class="card-text"><strong>Total:</strong> {{ formatoPesos(totalCarrito)}}</p>
                     <router-link to="/Pagos" style="text-decoration: ">
-                    <button type="button" class="btn btn-primary mt-2">Comprar</button><br>
+                    <button type="button" class="boton-comprar">Comprar</button><br>
                     </router-link>
-                    <button type="button" class="btn btn-danger mt-3" @click="clearData">Limpiar carrito</button>
+                    <button type="button" class="limpiar-carro" @click="clearData">Limpiar carrito</button>
                 </div>
               </div>
           </div>
@@ -128,7 +127,7 @@ export default {
  overflow-y: auto;
 }
 .scrollable-content::-webkit-scrollbar {
- width: 12px; /* Ancho de la barra de desplazamiento */
+ width: 12px; /* Ancho barra */
 }
 
 /* Estilo del pulgar de la barra de desplazamiento */
@@ -151,6 +150,42 @@ export default {
  margin-right: 70px;
  
 
+}
+.boton-añadir{
+background-color: rgb(46, 85, 85);
+border-radius: 20px;
+border-color: transparent;
+box-shadow: 1px 1px 1px 1px #5cf0bc;
+color: white !important;
+padding: 9px;
+font-size: 12px;
+}
+.boton-añadir :active{
+  background-color: aquamarine;
+}
+.limpiar-carro{
+  background-color: rgb(252, 95, 95);
+border-radius: 20px;
+border-color: transparent;
+box-shadow: 1px 1px 1px 1px #f0b75c;
+color: white !important;
+padding: 7px;
+font-size: 16px;
+margin-top: 8px;
+
+}
+.boton-comprar{
+  background-color: #6eabab;
+  text-align: center;
+border-radius: 30px;
+border-color: transparent;
+box-shadow: 1px 1px 1px 1px #13ccff;
+color: white !important;
+padding: 7px;
+font-size: 16px;
+margin-top: 4px;
+height: 40px;
+width: 100px;
 }
 
 </style>
