@@ -46,17 +46,19 @@
   </div>
 
   <div class="container mt-5">
-    <!-- footer-->
+    <FooterComponent></FooterComponent>
   </div>
 
 </template>
 <script>
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from './../components/FooterComponent.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   data() {
     return {
@@ -107,7 +109,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .card {

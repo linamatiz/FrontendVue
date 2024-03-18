@@ -24,21 +24,21 @@
         </section>
     </main>
     <div class="container mt-5">
-        <!-- footer-->
+        <FooterComponent></FooterComponent>
     </div>
 </template>
 
 <script>
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from './../components/FooterComponent.vue';
 
 export default {
     name: 'QueSomosView',
     components: {
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     }
-//   props: {
-//     msg: String
-//   }
+
 }
 </script>
 

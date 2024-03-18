@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="container mt-5">
-        <!-- footer-->
+      <FooterComponent></FooterComponent>
     </div>
   </div>
 </template>
@@ -37,11 +37,13 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from './../components/FooterComponent.vue';
 
 export default {
   name: 'LoginView',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   data() {
     return {
@@ -83,7 +85,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .containerPrincipal {

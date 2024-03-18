@@ -15,15 +15,18 @@
           </div>
           </div>
     </div>
+    <FooterComponent></FooterComponent>
 </template>
 
 <script>
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from './../components/FooterComponent.vue';
 
 export default {
   name: 'WelcomeView',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   }
 }
 </script>

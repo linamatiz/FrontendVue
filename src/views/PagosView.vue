@@ -4,7 +4,7 @@
     <h1>Pasarela de Pago</h1>
     <div v-if="!paymentComplete">
       <form @submit.prevent="processPayment">
-        <!-- campos de entrada usuario-->
+        <!-- campos de entrada para el usuario-->
         <div class="pagos">
           <div>
             <label>Número de Tarjeta:</label>
@@ -24,7 +24,7 @@
         </div>
       </form>
 
-      <!-- Sección para mostrar lo que se está escribiendo en tiempo real -->
+      <!-- Sección la cual nos muestra lo que se está escribiendo en tiempo real -->
       <div class="datos">
         <h2>Datos pago</h2>
         <br>
@@ -88,7 +88,7 @@ export default {
 
 
 <style scoped>
-/* Estilos CSS para la vista */
+/* estilos css*/
 .cvv {
   margin-left: 70px;
 }

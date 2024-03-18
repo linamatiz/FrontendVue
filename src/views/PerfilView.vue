@@ -1,10 +1,8 @@
 <template>
     <HeaderComponent></HeaderComponent>
     <div class="container ml-auto">
- 
         <!-- actualizar datos pefil"
-
-        </div> -->
+        <actaulizar datos -->
         <div class="col-md-19 mt-5">
             <div class="card">
                 <div class="card-header">Actualizar Perfil</div>
@@ -115,12 +113,11 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .fs-4{
     color: rgb(20, 230, 233); /* Establecer el color del texto */
     text-align: center; /* Centrar el texto horizontalmente */
-    font-size: 49px; /* Establecer el tamaño del texto en 29px */
+    font-size: 49px; /* Establecer el tamaño del texto */
 
 }
 

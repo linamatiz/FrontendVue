@@ -14,6 +14,7 @@
 <script>
 import HeaderComponent from './../components/HeaderComponent.vue';
 
+
 export default {
   name: 'ChatView',
   components: {
@@ -113,13 +114,13 @@ export default {
 }
 
 .input {
-  width: 100%; /*  ancho completo de su contenedor */
-  height: 40px; /* ajusta la altura */
-  font-size: 16px; /* ajusta el tamaño del texto */
+  width: 100%; /*  ancho del contenedor */
+  height: 40px; /* ajuste de la altura */
+  font-size: 16px; /* ajuste del tamaño */
 }
 
 .smoky-bg {
-  background-color: #b1b1b1; /* Color de fondo que prefieras */
+  background-color: #b1b1b1; /* color de fondo  */
 }
 
 </style>
