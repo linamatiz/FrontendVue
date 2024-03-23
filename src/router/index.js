@@ -8,6 +8,7 @@ import PerfilView from '../views/PerfilView.vue'
 import HomeView from '../views/HomeView.vue'
 import PagosView from '../views/PagosView.vue'
 import ChatView from '../views/ChatView.vue'
+import AdminDashboardView from '../views/AdminDashboard.View.vue'
 
 const routes = [
   {
@@ -52,7 +53,13 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     component: WelcomeView,
+  },
+  {
+    path: '/administrador',
+    name: 'AdminDashboard',
+    component: AdminDashboardView,
   }
+  
 ]
 
 const router = createRouter({
