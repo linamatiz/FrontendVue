@@ -8,7 +8,7 @@
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <button type="submit" class="boton-administrador">Iniciar sesión</button>
       </form>
     </div>
 
@@ -104,6 +104,9 @@ export default {
 
 
 <style scoped>
+.uthentication{
+  border:black 1px;
+}
 .dashboard {
   padding: 20px;
 }
@@ -155,5 +158,27 @@ export default {
 .product-management .btn-danger:hover {
   background-color: #bd2130;
   border-color: #bd2130;
+}
+.boton-administrador{
+  background-color: #6eabab;
+  text-align: center;
+border-radius: 30px;
+border-color: transparent;
+box-shadow: 1px 1px 1px 1px #2fff13;
+color: white !important;
+padding: 7px;
+font-size: 16px;
+margin-top: 100px;
+height: 60px;
+width: 160px;
+
+}
+#password{ 
+   margin-left: 580px;
+   margin-top: 95px;
+  height: 60px;
+width: 120px;
+
+
 }
 </style>
