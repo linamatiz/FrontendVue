@@ -25,20 +25,17 @@
                 </div>
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo</label>
-                  <input type="email" class="form-control" id="correo" name="correo" v-model="correo" required>
+                  <input type="email" class="form-control" id="correo" name="correo" v-model="correo" checked>
                 </div>
-                <div class="container-check my-3">
-                  <div>
-                    <label class="mx-2" for="checkbox1">eres mayor de edad</label>
-                    <input type="checkbox" id="checkbox1" v-model="checkbox1Value">
-                  </div>
-                  <div>
-                    <label class="mx-2" for="checkbox2">aceptas las politicas</label>
-                    <input type="checkbox" id="checkbox2" v-model="checkbox1Value">
-                  </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                  Eres mayor de edad
+                    </label>
                 </div>
                 <div class="row justify-content-center px-5 mb-3">
-                  <button type="submit" class="btn btn-secondary justify-content-end" style="border-color: transparent; color: primary;">
+                  <button type="submit" class="boton-registrate">
                     Registrate
                   </button>
                 </div>
@@ -50,7 +47,7 @@
     </div>
 
     <div class="container mt-5">
-      <!-- footer-->
+      <FooterComponent></FooterComponent>
     </div>
   </div>
 </template>
@@ -59,11 +56,13 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
   name: 'RegistroView',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   data() {
     return {
@@ -136,5 +135,19 @@ export default {
 .nav-link {
   background: linear-gradient(500deg, #c4c4c4, #828788);
 }
+.boton-registrate{
+  height: 40px;
+  background-color: darkslategray;
+        border-color: transparent;
+        box-shadow: 1px 1px 1px 1px #3bdbc3;
+        color: white !important;
+        border-radius: 10px;
+    }
+
+.boton-registrate:hover {
+    background-color: #8eb7b0 ;
+    }
+
+
 
 </style>

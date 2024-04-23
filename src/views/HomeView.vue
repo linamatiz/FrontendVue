@@ -130,16 +130,16 @@ export default {
  width: 12px; /* Ancho barra */
 }
 
-/* Estilo del pulgar de la barra de desplazamiento */
+
 .scrollable-content::-webkit-scrollbar-thumb {
- background-color: #08fcfc; /* Color de fondo del pulgar */
- border-radius: 6px; /* Borde redondeado del pulgar */
+ background-color: #08fcfc; 
+ border-radius: 6px;
  border-color: #828788;
 }
 
 /* Estilo de la pista de la barra de desplazamiento */
 .scrollable-content::-webkit-scrollbar-track {
- background-color: #f1f1f1; /* Color de fondo de la pista */
+ background-color: #f1f1f1; 
 }
 
 .button-profile {
@@ -164,7 +164,7 @@ font-size: 12px;
   background-color: aquamarine;
 }
 .limpiar-carro{
-  background-color: rgb(252, 95, 95);
+background-color: rgb(252, 95, 95);
 border-radius: 20px;
 border-color: transparent;
 box-shadow: 1px 1px 1px 1px #f0b75c;
@@ -175,8 +175,8 @@ margin-top: 8px;
 
 }
 .boton-comprar{
-  background-color: #6eabab;
-  text-align: center;
+background-color: #6eabab;
+text-align: center;
 border-radius: 30px;
 border-color: transparent;
 box-shadow: 1px 1px 1px 1px #13ccff;

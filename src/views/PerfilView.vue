@@ -1,8 +1,7 @@
 <template>
     <HeaderComponent></HeaderComponent>
     <div class="container ml-auto">
-        <!-- actualizar datos pefil"
-        <actaulizar datos -->
+        <!--actaulizar datos -->
         <div class="col-md-19 mt-5">
             <div class="card">
                 <div class="card-header">Actualizar Perfil</div>
@@ -10,25 +9,23 @@
                         <form method="POST" @submit.prevent="actualizarPerfil">
                             <div class="form-group ">
                                 <label for="numero_documento">Número de Documento</label>
-                                <input type="text" class="form-control" id="numero_documento" v-model="numero_documento" name="numero_documento"  disabled>
+                                    <input type="text" class="form-control" id="numero_documento" v-model="numero_documento" name="numero_documento"  disabled>
                             </div>
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" v-model="nombre" name="nombre" >
+                                    <input type="text" class="form-control" id="nombre" v-model="nombre" name="nombre" >
                             </div>
                             <div class="form-group">
                                 <label for="apellido">Apellido</label>
-                                <input type="text" class="form-control" id="apellido" v-model="apellido" name="apellido">
+                                    <input type="text" class="form-control" id="apellido" v-model="apellido" name="apellido">
                             </div>
                             <div class="form-group">
                                 <label for="correo">Correo</label>
-                                <input type="text" class="form-control" id="correo" v-model="correo" name="correo" >
+                                    <input type="text" class="form-control" id="correo" v-model="correo" name="correo" >
                             </div>
-                            
-
-                            <button type="submit" class="btn btn-primary mt-2">Actualizar Perfil</button>
+                            <br>
+                            <button type="submit" class="boton-actualizar">Actualizar Perfil</button>
                         </form>
-                        
                         <router-link to="/home" style="text-decoration: none">
                             <button class="btn btn-danger mt-3">Atras</button>
                         </router-link>
@@ -37,7 +34,7 @@
         </div>
     </div>
     <div class="container mt-5">
-        <!-- footer-->
+        <FooterComponent></FooterComponent>
     </div>
 </template>
 
@@ -45,11 +42,13 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import HeaderComponent from './../components/HeaderComponent.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 export default {
     name: 'PerfilView',
     components: {
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     },
     data() {
         return {
@@ -120,5 +119,18 @@ export default {
     font-size: 49px; /* Establecer el tamaño del texto */
 
 }
+.boton-actualizar{
+    height: 40px;
+    background-color: #868788;
+    border-color: transparent;
+    box-shadow: 1px 1px 1px 1px #3bdbc3;
+    color: white !important;
+    border-radius: 10px;
+    }
+
+.boton-actualizar:hover {
+    background-color: #47847d ;
+    }
+
 
 </style>

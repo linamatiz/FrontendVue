@@ -19,7 +19,7 @@
                     <input type="password" class="form-control" id="password" v-model="contra" name="password" required>
                   </div>
                   <div class="row px-5 mb-3 mt-2">
-                    <button class="btn btn-primary mb-2" type="submit">Iniciar Sesión</button>
+                    <button class="boton" type="submit">Iniciar Sesión</button>
                   </div>
                 </form>
               </div>
@@ -88,13 +88,26 @@ export default {
 <style scoped>
 
 .containerPrincipal {
-    background: linear-gradient(500deg, #c4c4c4, #828788);
-    color: #000000;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-size: cover;
+  background: linear-gradient(500deg, #c4c4c4, #828788);
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-size: cover;
 }
+.boton{
+  height: 40px;
+  background-color: darkslategray;
+  border-color: transparent;
+  box-shadow: 1px 1px 1px 1px #3bdbc3;
+  color: white !important;
+  border-radius: 10px;
+    }
+
+.boton:hover {
+  background-color: #769997 ;
+  }
+
 </style>

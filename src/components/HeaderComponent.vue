@@ -5,11 +5,15 @@
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                     <span class="fs-4" style="color: white">Compra & Venta</span>
                 </a>
-
                 <ul class="nav mb-2 justify-content-center">
                     <li>
                         <router-link to="/quesomos" style="text-decoration: none">
                             <a class="nav-link px-2 text-secondary" style="color: white !important;">¿Quienes Somos?</a>
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/Chat" style="text-decoration: none">
+                            <a class="nav-link px-2 text-secondary" style="color: white !important;">ChatBot</a>
                         </router-link>
                     </li>
                     <li v-if="mostrarBotonHome">
@@ -18,16 +22,11 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/Chat" style="text-decoration: none">
-                            <a class="nav-link px-2 text-secondary" style="color: white !important;">Atencion al cliente</a>
-                        </router-link>
-                    </li>
-                    <li>
                         <div class="text-end mr-5" v-if="mostrarBoton">  
-                            <button type="button" class="btn btn-danger registr-voton me-2" @click="cerrarSession()">
+                            <button type="button" class="btn btn-danger registro-boton me-2" @click="cerrarSession()">
                                 Cierra sesion
                             </button>                    
-                            <button type="button" class="btn btn-danger registr-voton me-3">
+                            <button type="button" class="btn btn-danger registr-boton me-3">
                                 <router-link to="/perfil" style="text-decoration: none">
                                     Perfil
                                 </router-link>
@@ -36,7 +35,7 @@
                     </li>
                     <li>
                         <div class="text-end mr-5" v-if="!mostrarBoton">  
-                            <button type="button" class="btn btn-success registr-voton me-2"
+                            <button type="button" class="btn btn-success registro-boton me-2"
                                 @click="cerrarSession()"
                                 v-if="mostrarBotonLogin">
                                 <router-link to="/login" style="text-decoration: none">
@@ -45,7 +44,7 @@
                             </button>                    
                             <button 
                                 type="button" 
-                                class="btn btn-danger registr-voton registro me-3" 
+                                class="btn btn-danger registro-boton registro me-3" 
                                 v-if="mostrarBotonRegistro">
                                 <router-link to="/registro" style="text-decoration: none">
                                     Registrate
@@ -61,7 +60,6 @@
 </template>
 <script>
 import axios from 'axios';
-
 export default {
     name: 'HeaderComponent',
     data() {
@@ -73,7 +71,7 @@ export default {
         }
     },
     created() {
-        this.mostrarBotones()
+        this.mostrarBotones();
     },
     methods: {
         cerrarSession() {
@@ -84,34 +82,21 @@ export default {
                 this.$router.push('/login');
             }).catch(() => {
                 //alerta que muestre que no se pudo cerrar la sesion
-            })
+            });
         },
-
-        //mostrar botones de inicio si esta logeado
         mostrarBotones() {
             const logeado = JSON.parse(localStorage.getItem('logeado'));
-
             this.mostrarBoton = logeado;
-
-            if(this.$route.path === '/login') {
+            if (this.$route.path === '/login' || this.$route.path === '/registro') {
                 this.mostrarBotonHome = false;
-                this.mostrarBotonLogin = false;
-                
+            } else {
+                this.mostrarBotonHome = logeado;
             }
-
-            if(this.$route.path === '/registro') {
-                this.mostrarBotonHome = false;
-                this.mostrarBotonRegistro = false;
-            }
-            if(this.$route.path === '/home') {
-                this.mostrarBoton = true;
-                this.mostrarBotonRegistro = false;
-            }
-            
         }
     }
 }
 </script>
+
 <style scoped>
     header {
         padding-top: .75rem;
@@ -129,14 +114,14 @@ export default {
         text-decoration: underline;
     }
 
-    .registr-voton {
+    .registro-boton {
         background-color: darkslategray;
         border-color: transparent;
         box-shadow: 1px 1px 1px 1px #3bdbc3;
         color: white !important;
     }
 
-    .registr-voton:active {
+    .registro-boton:active {
         background-color: #3bdbc3 !important;
     }
 
@@ -144,4 +129,4 @@ export default {
         color: white !important;
     }
 
-</style>    
+</style>

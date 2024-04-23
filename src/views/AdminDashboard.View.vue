@@ -82,9 +82,9 @@ export default {
   methods: {
     login() {
       // auth
-      const defaultPassword = 'admin2705'; // Contraseña  predeterminada
+      const defaultPassword = 'admin2705'; // Contraseña admin
       if (this.password === defaultPassword) {
-        this.isLoggedIn = true; // inicio de session con contraseñ predeterminada
+        this.isLoggedIn = true; // inicio de session con contraseña predeterminada
       } else {
         alert('Contraseña incorrecta'); // si la contraseña es incorrecta se mandara una alerta
       }
@@ -162,20 +162,20 @@ export default {
 .boton-administrador{
   background-color: #6eabab;
   text-align: center;
-border-radius: 30px;
-border-color: transparent;
-box-shadow: 1px 1px 1px 1px #2fff13;
-color: white !important;
-padding: 7px;
-font-size: 16px;
-margin-top: 100px;
-height: 60px;
-width: 160px;
+  border-radius: 30px;
+  border-color: transparent;
+  box-shadow: 1px 1px 1px 1px #2fff13;
+  color: white !important;
+  padding: 7px;
+  font-size: 16px;
+  margin-top: 100px;
+  height: 60px;
+  width: 160px;
 
 }
 #password{ 
-   margin-left: 580px;
-   margin-top: 95px;
+  margin-left: 580px;
+  margin-top: 95px;
   height: 60px;
 width: 120px;
 
