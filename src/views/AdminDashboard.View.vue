@@ -11,11 +11,9 @@
         <button type="submit" class="boton-administrador">Iniciar sesión</button>
       </form>
     </div>
-
     <!-- Spanel de control -->
     <div v-else>
       <h1 class="text-center mb-4">Panel de Control</h1>
-      
       <!-- Sección de estadísticas -->
       <div class="statistics mb-4">
         <h2 class="text-center">Estadísticas</h2>
@@ -24,7 +22,7 @@
           <li class="list-group-item">Productos en stock: {{ totalProducts }}</li>
         </ul>
       </div>
-      
+
       <!-- productos -->
       <div class="product-management">
         <h2 class="text-center mb-3">Gestión de Productos</h2>

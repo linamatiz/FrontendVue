@@ -52,7 +52,7 @@ export default {
         'samsung': 'disponibilidad samsung m12, samsung s3',
         'iphone': 'iphone 14, 7+, x, 8+',
         'motorola': 'morola e32, motorola one fusion',
-        // si no coincide con la pregunta automatizada, el mensaje por defecto será:
+        // si no coincide con la pregunta automatizada, el mensaje por defecto seria
         'default': 'Te invitamos a revisar la página de inicio para ver nuestros productos disponibles'
       };
 
