@@ -86,19 +86,24 @@ export default {
       axios.post('http://127.0.0.1:8000/api/create', query)
       .then(response => {
         console.log('respuesta registro: ', response);
-        this.mostrarAlerta(false);
         localStorage.setItem('logeado', JSON.stringify(true));
         localStorage.setItem('documento', JSON.stringify(this.numero_documento));
+        if(response.data.estatus !== 400) {
+          this.mostrarAlerta(false, response.data.message);
+        }else {
+          this.mostrarAlerta(true, response.data.message);
+          return;
+        }
       }).catch(error => {
         this.mostrarAlerta(true);
         console.log('error al realizar el registro', error)
       });
     },
 
-    mostrarAlerta(esError) {
+    mostrarAlerta(esError, message = "NO SE PUSO UN TEXTO") {
       return Swal.fire({
         title: esError ? '¡Error!' : 'Bien',
-        text: esError ? 'corrige tus datos' : 'registrado',
+        text: message,
         icon: esError ? 'error' : 'success',
         confirmButtonText: 'Aceptar',
         confirmButtonColor: esError ? 'red' : 'blue',

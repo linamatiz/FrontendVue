@@ -12,11 +12,11 @@
                 <form @submit.prevent="login">
                   <div class="mb-3">
                     <label for="usuario" class="form-label">Numero de documento</label>
-                    <input type="text" class="form-control" id="usuario" v-model="numero_documento" name="numero_documento" required>
+                    <input type="text" class="form-control" id="usuario"  v-model="numero_documento" name="numero_documento" required>
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" v-model="contra" name="password" required>
+                    <input type="password" class="form-control" id="password" autocomplete="current-password" v-model="contra" name="password" required>
                   </div>
                   <div class="row px-5 mb-3 mt-2">
                     <button class="boton" type="submit">Iniciar Sesión</button>

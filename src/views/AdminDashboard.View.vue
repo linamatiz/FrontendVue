@@ -1,4 +1,5 @@
 <template>
+  <HeaderComponent></HeaderComponent>
   <div class="dashboard">
     <!-- Sección de autenticación -->
     <div v-if="!isLoggedIn" class="authentication">
@@ -13,7 +14,7 @@
     </div>
     <!-- Spanel de control -->
     <div v-else>
-      <h1 class="text-center mb-4">Panel de Control</h1>
+      <h1 class="text-center mb-4">Administrador</h1>
       <!-- Sección de estadísticas -->
       <div class="statistics mb-4">
         <h2 class="text-center">Estadísticas</h2>
@@ -25,7 +26,7 @@
 
       <!-- productos -->
       <div class="product-management">
-        <h2 class="text-center mb-3">Gestión de Productos</h2>
+       
         <div class="row">
           <div class="col-lg-4 mb-4" v-for="(producto, index) in productos" :key="index">
             <div class="card h-100">
@@ -52,7 +53,12 @@
 </template>
 
 <script>
+import HeaderComponent from './../components/HeaderComponent.vue';
 export default {
+  name: 'AdminDashboardView',
+  components: {
+    HeaderComponent
+  },
   data() {
     return {
       password: '',
